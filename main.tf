@@ -1,12 +1,6 @@
 provider "aws" {
   region = var.aws_region
 
-  default_tags {
-    tags = {
-      team = "Support"
-      created_by = data.aws_caller_identity.current.arn
-    }
-  }
 }
 
 resource "random_pet" "cluster" {
