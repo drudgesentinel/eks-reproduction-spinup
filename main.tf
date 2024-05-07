@@ -51,7 +51,7 @@ module "vpc" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 20"
+  version = "~> 20.0"
 
   cluster_name    = local.cluster_name
   cluster_version = var.cluster_version
@@ -75,6 +75,13 @@ module "eks" {
       max_size     = 3
       desired_size = 2
     }
+  }
+
+  enable_cluster_creator_admin_permissions = true
+
+  tags = {
+    team             = "support"
+    opentofu_managed = "true"
   }
 }
 
@@ -107,14 +114,14 @@ resource "aws_eks_addon" "ebs-csi" {
 }
 
 resource "aws_eks_access_entry" "current_user" {
-  cluster_name = module.eks.cluster_name
+  cluster_name  = module.eks.cluster_name
   principal_arn = data.aws_caller_identity.current.arn
 
 }
 
 resource "aws_eks_access_policy_association" "current_user_admin" {
-  cluster_name = module.eks.cluster_name
-  policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
+  cluster_name  = module.eks.cluster_name
+  policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
   principal_arn = data.aws_caller_identity.current.arn
 
   access_scope {
