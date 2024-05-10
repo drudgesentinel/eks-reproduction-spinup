@@ -25,6 +25,6 @@ output "caller_arn" {
   value = data.aws_caller_identity.current.arn
 }
 
-output "login_instructions" {
+output "config_string" {
   value = "aws eks update-kubeconfig --region ${var.aws_region} --name ${module.eks.cluster_name}"
 }
