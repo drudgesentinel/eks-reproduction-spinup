@@ -7,3 +7,8 @@ Tested with OpenTofu. Provider address `opentofu/aws` is an alias for `hashicorp
 After resources are provisioned, run `aws eks update-kubeconfig --region $REGION --name $CLUSTERNAME`
 
 Then, run `kubectl get svc` to verify permissions propagated properly.
+
+If you would like to configure your s3 backend, add a s3_backend.conf file with the following values:
+    bucket = "s3-bucket-name"
+    key    = "path-to-state"
+    region = "us-east-1"
