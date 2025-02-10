@@ -30,3 +30,8 @@ variable "node_group_ami_type" {
   type        = string
   default     = "AL2023_x86_64_STANDARD"
 }
+
+variable "node_security_group_id" {
+  description = "The security group to apply to your EKS nodes"
+  type = string
+}
