@@ -20,7 +20,7 @@ variable "cluster_version" {
 }
 
 variable "instance_types" {
-  description = "Instance types for the EKS node_group nodes. Defaults to t3a.large"
+  description = "Instance types for the EKS node_group nodes. Defaults to t3a.xlarge"
   type        = list(any)
   default     = ["t3a.xlarge"]
 }
