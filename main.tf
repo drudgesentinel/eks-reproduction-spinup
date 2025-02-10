@@ -80,9 +80,9 @@ module "eks" {
       desired_size = 2
       public_ip    = true
 
-      iam_role_additional_policies = [
-        "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-      ]
+      iam_role_additional_policies = {
+        AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+      }
     }
 
 
