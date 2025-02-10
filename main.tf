@@ -79,6 +79,10 @@ module "eks" {
       max_size     = 3
       desired_size = 2
     }
+
+    iam_role_additional_policies = [
+        "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+      ]
   }
 
   enable_cluster_creator_admin_permissions = true
