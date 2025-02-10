@@ -10,6 +10,8 @@ After resources are provisioned, run `aws eks update-kubeconfig --region $REGION
 Then, run `kubectl get svc` to verify permissions propagated properly.
 
 If you would like to configure your s3 backend (e.g., terraform init -backend-config="s3_backend.conf") , add a s3_backend.conf file with the following values:
+```
     bucket = "s3-bucket-name"
     key    = "path-to-state"
     region = "us-east-1"
+```
