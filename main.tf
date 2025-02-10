@@ -22,6 +22,7 @@ locals {
   cluster_name = random_pet.cluster.id
 }
 
+
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 5"
@@ -61,8 +62,6 @@ module "eks" {
   vpc_id                         = module.vpc.vpc_id
   subnet_ids                     = module.vpc.public_subnets
   cluster_endpoint_public_access = true
-  node_security_group_id         = var.node_security_group_id
-
 
   eks_managed_node_group_defaults = {
     ami_type = var.node_group_ami_type
