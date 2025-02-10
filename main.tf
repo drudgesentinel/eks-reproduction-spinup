@@ -59,7 +59,7 @@ module "eks" {
   cluster_version = var.cluster_version
 
   vpc_id                         = module.vpc.vpc_id
-  subnet_ids                     = module.vpc.private_subnets
+  subnet_ids                     = module.vpc.public_subnets
   cluster_endpoint_public_access = true
   node_security_group_id = var.node_security_group_id
   
@@ -79,7 +79,7 @@ module "eks" {
       max_size     = 3
       desired_size = 2
     }
-
+    public_ip = true
     iam_role_additional_policies = [
         "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
       ]
