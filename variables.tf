@@ -16,7 +16,7 @@ variable "aws_region" {
 variable "cluster_version" {
   description = "The version you would like on your EKS cluster"
   type        = string
-  default     = "1.29"
+  default     = "1.30"
 }
 
 variable "instance_types" {
