@@ -1,4 +1,5 @@
 Repo to create a basic, unconfigured EKS cluster for reproducing/troubleshooting issues.
+The individual nodes are accessible via SSM
 
 Based on copyleft (MPL 2.0) code from a tutorial in the [Hashicorp docs](https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks)
 
