@@ -33,5 +33,5 @@ variable "node_group_ami_type" {
 
 variable "node_security_group_id" {
   description = "The security group to apply to your EKS nodes"
-  type = string
+  type        = string
 }
